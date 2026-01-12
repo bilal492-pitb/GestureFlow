@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GestureFlow Controller</title>
+    <style>
+        html,body { height:100%; margin:0; }
+        body { font-family: Arial, sans-serif; height:100%; display:flex; flex-direction:column; }
+        .topbar { padding:8px 12px; background:#0f172a; color:#fff; display:flex; align-items:center; gap:12px }
+        .status { padding: 6px 10px; border-radius: 4px; font-size:13px }
+        .connected { background: #d4edda; color: #155724; }
+        .disconnected { background: #f8d7da; color: #721c24; }
+        #connectButton { padding: 6px 12px; }
+        #frame { flex:1; border:0; width:100%; }
+        .note { font-size:12px; color:#ddd }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div style="font-weight:600">GestureFlow</div>
+        <div id="status" class="status disconnected">Not Connected</div>
+        <button id="connectButton">Connect</button>
+        <div style="flex:1"></div>
+        <div class="note">If the embedded UI doesn't load, run the app on port 3000 and click the button below to open it externally.</div>
+    </div>
+
+    <!-- Embed the main GestureFlow UI (running on localhost:3000) for easy access inside the taskpane -->
+    <iframe id="frame" src="http://localhost:3000/" title="GestureFlow UI"></iframe>
+
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script src="taskpane.js"></script>
+</body>
+</html>
